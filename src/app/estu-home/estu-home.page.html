@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio Alumno</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Bienvenido, {{ correo }}!</h2>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>RegistrAPP - Panel de Alumno</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Desde aquí puede escanear el código QR para registrar su asistencia.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" (click)="escanearQR()">Escanear Código QR</ion-button>
+
+  <ion-button expand="block" (click)="logout()" color="danger">Cerrar Sesión</ion-button>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Restablecer Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="resetForm" (ngSubmit)="onResetPassword()">
+    <ion-item>
+      <ion-label position="floating">Correo electrónico</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="resetForm.get('email')?.touched && resetForm.get('email')?.invalid">
+      {{ getErrorMessage('email') }}
+    </ion-text>
+
+    <ion-button expand="block" type="submit" class="ion-margin-top" [disabled]="resetForm.invalid">RECUPERAR</ion-button>
+  </form>
+
+  <ion-button expand="block" fill="clear" (click)="goToLogin()">
+    Volver al inicio de sesión
+  </ion-button>
+</ion-content>

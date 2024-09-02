@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio Profesor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Bienvenido, Profesor {{ correo }}!</h2>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>RegistrAPP - Panel de Profesor</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Desde aquí puede generar el código QR para la asistencia.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" (click)="generarCodigoQR()">Generar Código QR</ion-button>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Asistencias Registradas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let asistencia of asistencias">
+          <ion-label>
+            <h2>{{ asistencia.correo }}</h2>
+            <p>{{ asistencia.hora }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" (click)="logout()" color="danger">Cerrar Sesión</ion-button>
+</ion-content>
