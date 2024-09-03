@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'estu-home',
     loadChildren: () => import('./estu-home/estu-home.module').then( m => m.EstuHomePageModule)
   },
+  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+  },
 ];
 
 @NgModule({

@@ -34,4 +34,12 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+:root {
+    --color-primary: #74aa9e;
+    --color-secondary: #7eb4a8;
+    --color-tertiary: #75ad9f;
+    --color-quaternary: #8dc5b6FE;
+    --color-quinary: #a4ddce;
+    --color-text: #333333;
+    --color-error: #FF6B6B;
+}

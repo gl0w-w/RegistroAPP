@@ -1,11 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Inicio Profesor</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h2>Bienvenido, Profesor {{ correo }}!</h2>
+<ion-content class="ion-padding" >
+  <h2>Bienvenido, Profesor!</h2>
+  <h2>{{ correo }}</h2>
+  <br>
   
   <ion-card>
     <ion-card-header>
@@ -16,8 +17,8 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-button expand="block" (click)="generarCodigoQR()">Generar Código QR</ion-button>
-
+  <ion-button expand="block" (click)="generarCodigoQR()" class="ion-margin-top">Generar Código QR</ion-button>
+<br>
   <ion-card>
     <ion-card-header>
       <ion-card-title>Asistencias Registradas</ion-card-title>
@@ -34,5 +35,5 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-button expand="block" (click)="logout()" color="danger">Cerrar Sesión</ion-button>
+  <ion-button expand="block" (click)="logout()" class="ion-margin-top">Cerrar Sesión</ion-button>
 </ion-content>

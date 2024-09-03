@@ -1,0 +1,114 @@
+/* Variables de color */
+
+.olawea{
+    font-weight: bold;
+    font-size: 12312.2em;
+}
+
+.btn-ol {
+    color: #ffffff;
+    background-color: var(--color-quinary) !important;
+     
+
+}
+.btn-ol:hover {
+    color: #8abe9b;
+}
+ion-content {
+    margin-top: 51230px;
+    text-align: center;
+}
+  /* Estilos para forzar el color de fondo */
+  body, 
+  ion-content, 
+  .ion-page, 
+  :host {
+    background-color: var(--color-quinary) !important;
+  }
+  
+  ion-content::part(background) {
+    background-color: var(--color-quinary) !important;
+  }
+  
+  /* Estilos para el formulario */
+  form {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 18px 10px rgba(116, 170, 158, 0.8);
+  }
+  ion-item:hover {
+    --background: rgba(116, 170, 158, 0.2);
+ 
+
+
+  }
+  
+  /* Estilos para el encabezado */
+  ion-header ion-toolbar {
+    --background: var(--color-primary);
+    text-align: center;
+  }
+  
+  ion-title {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  
+  /* Estilos para los ítems del formulario */
+  ion-item {
+    --background: transparent;
+    --border-color: var(--color-tertiary);
+    --border-width: 1px;
+    --border-radius: 5px;
+    --padding-start: 10px;
+    margin-bottom: 15px;
+  }
+  
+  ion-label {
+    color: var(--color-text);
+    font-weight: 500;
+  }
+  
+  ion-input, ion-select {
+    --padding-start: 10px;
+    --placeholder-color: var(--color-quaternary);
+    font-size: 16px;
+  }
+  
+  /* Estilos para los botones */
+  .ion-margin-top {
+    --background: var(--color-secondary);
+    --background-hover: var(--color-primary);
+    --color: #ffffff;
+    --border-radius: 5px;
+    font-weight: bold;
+    margin-top: 30px;
+    height: 45px;
+
+        
+  }
+  
+  ion-button[fill="clear"] {
+    font-weight: bold;
+  }
+  
+  .olawe{
+    --background-hover: #ffffff;
+    color: var(--color-quinary) !important;
+  }
+  
+  /* Estilo específico para el botón de olvido de contraseña */
+
+  
+  /* Estilos para los mensajes de error y texto adicional */
+  ion-text[color="danger"],
+  p {
+    color: var(--color-text) !important;
+    font-size: 0.9em;
+    margin: 10px 0;
+  }
+  
