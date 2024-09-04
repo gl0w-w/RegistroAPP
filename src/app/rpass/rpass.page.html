@@ -1,9 +1,7 @@
-<ion-header>
-  <ion-toolbar>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content class="ion-padding">
+    <img src="../../assets/Img/RegistrAPP-3-9-2024.png" alt="Logo">
+  
   <form [formGroup]="resetForm" (ngSubmit)="onResetPassword()">
     <ion-item>
       <ion-label position="floating">Correo electrónico</ion-label>
@@ -13,7 +11,15 @@
       {{ getErrorMessage('email') }}
     </ion-text>
 
-    <ion-button expand="block" type="submit" class="ion-margin-top" [disabled]="resetForm.invalid">RECUPERAR</ion-button>
+    <ion-item>
+      <ion-label position="floating">Nueva contraseña</ion-label>
+      <ion-input type="password" formControlName="newPassword"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="resetForm.get('newPassword')?.touched && resetForm.get('newPassword')?.invalid">
+      {{ getErrorMessage('newPassword') }}
+    </ion-text>
+
+    <ion-button expand="block" type="submit" class="ion-margin-top" [disabled]="resetForm.invalid">CAMBIAR CONTRASEÑA</ion-button>
   </form>
 
   <ion-button expand="block" fill="clear" (click)="goToLogin()" class="btn-ol">

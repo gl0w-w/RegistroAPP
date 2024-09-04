@@ -3,6 +3,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
+interface User {
+  nombre: string;
+  email: string;
+  password: string;
+  role: string;
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -12,26 +19,17 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private router: Router,
     private toastController: ToastController
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8), this.passwordValidator]],
-      role: ['alumno', Validators.required]
+      password: ['', [Validators.required]]
     });
   }
 
   ngOnInit() {}
-
-  passwordValidator(control: any) {
-    const value = control.value;
-    const hasUpperCase = /[A-Z]/.test(value);
-    const hasNumber = /[0-9]/.test(value);
-    const valid = hasUpperCase && hasNumber;
-    return valid ? null : { invalidPassword: true };
-  }
 
   getErrorMessage(field: string): string {
     const control = this.loginForm.get(field);
@@ -42,41 +40,41 @@ export class LoginPage implements OnInit {
       if (control.errors['email']) {
         return 'Ingrese un correo electrónico válido';
       }
-      if (control.errors['minlength']) {
-        return `La contraseña debe tener al menos ${control.errors['minlength'].requiredLength} caracteres`;
-      }
-      if (control.errors['invalidPassword']) {
-        return 'La contraseña debe contener al menos una mayúscula y un número';
-      }
     }
     return '';
   }
-  onSubmit() {
+
+  async onSubmit() {
     if (this.loginForm.valid) {
-      const { email, password, role } = this.loginForm.value;
-      localStorage.setItem('currentUser', email);
-      localStorage.setItem('userRole', role);
-      
-      if (role === 'profesor') {
-        this.router.navigate(['/profe-home']);
+      const { email, password } = this.loginForm.value;
+      const users: User[] = JSON.parse(localStorage.getItem('users') || '[]');
+  
+      const user = users.find(u => u.email === email && u.password === password);
+  
+      if (user) {
+        localStorage.setItem('currentUserEmail', user.email);
+        if (user.role === 'profesor') {
+          this.router.navigate(['/profe-home']);
+        } else {
+          this.router.navigate(['/estu-home']);
+        }
       } else {
-        this.router.navigate(['/estu-home']);
+        const toast = await this.toastController.create({
+          message: 'Credenciales incorrectas',
+          duration: 2000,
+          position: 'bottom',
+          color: 'danger'
+        });
+        toast.present();
       }
     }
+  }
+
+  goToRegistro() {
+    this.router.navigate(['/registro']);
   }
 
   goToResetPassword() {
     this.router.navigate(['/rpass']);
-  }
-
-  async borrarDatos() {
-    localStorage.clear();
-    const toast = await this.toastController.create({
-      message: 'Todos los datos han sido borrados',
-      duration: 2000,
-      position: 'bottom',
-      color: 'warning'
-    });
-    toast.present();
   }
 }

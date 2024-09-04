@@ -1,10 +1,6 @@
-<br>
-<br>
-<img src="../../assets/Img/RegistrAPP-3-9-2024.png" alt="">
-
-<br>
-
 <ion-content class="ion-padding">
+  <img src="../../assets/Img/RegistrAPP-3-9-2024.png" alt="Logo">
+
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
     <ion-item>
       <ion-label position="floating">Correo electrónico</ion-label>
@@ -22,27 +18,14 @@
       {{ getErrorMessage('password') }}
     </ion-text>
 
-    <ion-item>
-      <ion-label>Rol</ion-label>
-      <ion-select formControlName="role">
-        <ion-select-option value="alumno">Alumno</ion-select-option>
-        <ion-select-option value="profesor">Profesor</ion-select-option>
-      </ion-select>
-    </ion-item>
-
-
-
     <ion-button expand="block" type="submit" class="ion-margin-top" [disabled]="loginForm.invalid">INGRESAR</ion-button>
   </form>
 
   <ion-button expand="block" fill="clear" (click)="goToResetPassword()" class="btn-ol">
     ¿Olvidaste tu contraseña?
   </ion-button>
-<br>
-<br><b><br><br></b>
 
-
-  <ion-button expand="block" fill="clear" (click)="borrarDatos()" class="olawe">
-    Borrar todos los datos
+  <ion-button expand="block" fill="clear" (click)="goToRegistro()" class="btn-ol">
+    ¿No tienes cuenta? Regístrate
   </ion-button>
 </ion-content>
