@@ -5,7 +5,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'start-ani',
     pathMatch: 'full'
   },
   {
@@ -27,6 +27,10 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+  } ,
+  {
+    path: 'start-ani',
+    loadChildren: () => import('./start-ani/start-ani.module').then( m => m.StartAniPageModule)
   },
 ];
 
